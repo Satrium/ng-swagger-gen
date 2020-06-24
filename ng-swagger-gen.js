@@ -1160,7 +1160,7 @@ function processServices(swagger, models, options) {
         descriptor.operationIds
       );
 
-      var parameters = def.parameters || [];
+      var parameters = (def.parameters || []).filter(x => x.name != "authToken");
 
       if (methodParameters) {
         parameters = parameters.concat(methodParameters);
